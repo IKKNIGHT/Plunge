@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Plunge Games</title>
+  <style>
+    body {
+      margin: 0;
+      background: radial-gradient(circle at bottom, #001f3f 0%, #000814 100%);
+      font-family: "Trebuchet MS", sans-serif;
+      color: #cceeff;
+      overflow-x: hidden;
+    }
+
+    /* Hero section */
+    .hero {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    h1 {
+      font-size: 3rem;
+      text-shadow: 0 0 20px rgba(0, 200, 255, 0.8);
+      margin: 0;
+    }
+
+    /* Floating lights */
+    .light {
+      position: absolute;
+      border-radius: 50%;
+      background: rgba(0, 200, 255, 0.8);
+      box-shadow: 0 0 15px rgba(0, 200, 255, 0.8);
+      animation: drift 6s ease-in-out infinite alternate;
+      z-index: 0;
+    }
+
+    @keyframes drift {
+      0%   { transform: translate(0, 0); }
+      25%  { transform: translate(10px, -5px); }
+      50%  { transform: translate(-8px, 10px); }
+      75%  { transform: translate(6px, 6px); }
+      100% { transform: translate(-5px, -8px); }
+    }
+
+    /* Game tiles section */
+    .games {
+      padding: 3rem 2rem;
+      display: grid;
+      grid-template-columns: repeat(4, 214px); /* force 4 per row */
+      gap: 2rem; /* less space between */
+      background: linear-gradient(to bottom, rgba(0,0,20,0.95), #001f3f);
+      justify-content: center;
+    }
+
+    .tile {
+      width: 214px;
+      height: 284px;
+      background: #0a1a2a;
+      border-radius: 0.75rem;
+      overflow: hidden;
+      text-align: center;
+      color: #cceeff;
+      font-size: 1rem;
+      box-shadow: 0 0 15px rgba(0, 200, 255, 0.2);
+      cursor: pointer;
+      transition: transform 0.2s ease, box-shadow 0.3s ease;
+      text-decoration: none;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .tile img {
+      width: 100%;
+      height: 80%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .tile p {
+      margin: 0;
+      padding: 0.5rem;
+      background: #0f2238;
+      flex-shrink: 0;
+    }
+
+    .tile:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 25px rgba(0, 255, 255, 0.6);
+    }
+  </style>
+</head>
+<body>
+  <!-- Hero Section -->
+  <div class="hero">
+    <h1>Plunge Games</h1>
+  </div>
+
+  <!-- Lights Script -->
+  <script>
+    for (let i = 0; i < 40; i++) {
+      const light = document.createElement("div");
+      light.classList.add("light");
+
+      const size = Math.random() * 6 + 3;
+      light.style.width = `${size}px`;
+      light.style.height = `${size}px`;
+
+      // Random initial position
+      light.style.left = `${Math.random() * 100}vw`;
+      light.style.top = `${Math.random() * 100}vh`;
+
+      // Random animation timing
+      light.style.animationDuration = `${4 + Math.random() * 6}s`;
+      light.style.animationDelay = `${Math.random() * 5}s`;
+
+      document.body.appendChild(light);
+    }
+  </script>
+
+  <!-- Games Section -->
+  <section class="games">
+    <a href="games/bbp.html" class="tile">
+      <img src="https://cdn.jsdelivr.net/gh/gn-math/covers@main/467.png" alt="Baldi's Basics Plus">
+      <p>Baldi's Basics Plus</p>
+    </a>
+    <a href="games/BatIM.html" class="tile">
+      <img src="https://cdn.jsdelivr.net/gh/gn-math/covers@main/215.png" alt="Bendy and the Ink Machine">
+      <p>Bendy and the Ink Machine</p>
+    </a>
+    <a href="games/br.html" class="tile">
+      <img src="https://cdn.jsdelivr.net/gh/gn-math/covers@main/205.png" alt="Buckshot Roulette">
+      <p>Buckshot Roulette</p>
+    </a>
+    <a href="games/Cuphead.html" class="tile">
+      <img src="https://cdn.jsdelivr.net/gh/gn-math/covers@main/465.png" alt="Cuphead">
+      <p>Cuphead</p>
+    </a>
+    <a href="games/Deltarune.html" class="tile">
+      <img src="https://cdn.jsdelivr.net/gh/gn-math/covers@main/425.png" alt="Deltarune">
+      <p>Deltarune</p>
+    </a>
+    <a href="games/Hollow Knight.html" class="tile">
+      <img src="https://cdn.jsdelivr.net/gh/gn-math/covers@main/468.png" alt="Hollow Knight">
+      <p>Hollow Knight</p>
+    </a>
+    <a href="games/Kindergarten.html" class="tile">
+      <img src="https://cdn.jsdelivr.net/gh/gn-math/covers@main/445.png" alt="Kindergarten">
+      <p>Kindergarten</p>
+    </a>
+    <a href="games/Kindergarten 2.html" class="tile">
+      <img src="https://cdn.jsdelivr.net/gh/gn-math/covers@main/446.png" alt="Kindergarten 2">
+      <p>Kindergarten 2</p>
+    </a>
+    <a href="games/Minecraft 1.12.2.html" class="tile">
+      <img src="https://cdn.jsdelivr.net/gh/gn-math/covers@main/182.png" alt="Minecraft 1.12.2 (Sigma Stealers!)">
+      <p>Minecraft 1.12.2 (Sigma Stealers!)</p>
+    </a>
+    <a href="games/OMORI.html" class="tile">
+      <img src="https://cdn.jsdelivr.net/gh/gn-math/covers@main/427.png" alt="OMORI">
+      <p>OMORI</p>
+    </a>
+    <a href="games/R.E.P.O.html" class="tile">
+      <img src="https://cdn.jsdelivr.net/gh/gn-math/covers@main/195.png" alt="R.E.P.O">
+      <p>R.E.P.O</p>
+    </a>
+    <a href="games/ULTRAKILL.html" class="tile">
+      <img src="https://cdn.jsdelivr.net/gh/gn-math/covers@main/196.png" alt="ULTRAKILL">
+      <p>ULTRAKILL</p>
+    </a>
+    <a href="games/Undertale.html" class="tile">
+      <img src="https://cdn.jsdelivr.net/gh/gn-math/covers@main/184.png" alt="UNDERTALE">
+      <p>UNDERTALE</p>
+    </a>
+  </section>
+  <p>Made By <a href="https://github.com/IKKNIGHT">Isaaq</a> | Giddy Giddy Giddy</p>
+</body>
+</html>
